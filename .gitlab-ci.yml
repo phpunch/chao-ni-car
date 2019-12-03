@@ -19,11 +19,12 @@ build_backend:
     - docker:dind
   script:
     - echo "Building backend"
+    - echo $CI_REGISTRY
     - cd backend
     - docker info
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.example.com
-    - docker build --pull -t registry.example.com/phpunch/chow-ni-car/backend:${CI_COMMIT_SHA} .
-    - docker push registry.example.com/phpunch/chow-ni-car/backend:${CI_COMMIT_SHA}
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build --pull -t $CI_REGISTRY/phpunch/chow-ni-car/backend:${CI_COMMIT_SHA} .
+    - docker push $CI_REGISTRY/phpunch/chow-ni-car/backend:${CI_COMMIT_SHA}
 
 build_frontend:
   image: docker:stable
@@ -38,9 +39,9 @@ build_frontend:
     - echo $CI_JOB_TOKEN
     - cd frontend
     - docker info
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.example.com
-    - docker build --pull -t registry.example.com/phpunch/chow-ni-car/frontend:${CI_COMMIT_SHA} .
-    - docker push registry.example.com/phpunch/chow-ni-car/frontend:${CI_COMMIT_SHA}
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build --pull -t $CI_REGISTRY/phpunch/chow-ni-car/frontend:${CI_COMMIT_SHA} .
+    - docker push $CI_REGISTRY/phpunch/chow-ni-car/frontend:${CI_COMMIT_SHA}
 
 test:
   stage: test
