@@ -22,7 +22,7 @@ spec:
       imagePullSecrets:
         - name: gitlab-auth # set by (kubectl create secret ... ) and used for pulling private image 
       containers:
-        - image: registry.example.com/phpunch/chow-ni-car/frontend:__VERSION__
+        - image: registry.gitlab.com/phpunch/chow-ni-car/frontend:__VERSION__
           imagePullPolicy: Always
           name: frontend
           ports:
