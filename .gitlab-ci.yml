@@ -21,9 +21,9 @@ build_backend:
     - echo "Building backend"
     - cd backend
     - docker info
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
-    - docker build --pull -t registry.gitlab.com/phpunch/chow-ni-car/backend:${CI_COMMIT_SHA} .
-    - docker push registry.gitlab.com/phpunch/chow-ni-car/backend:${CI_COMMIT_SHA}
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.example.com
+    - docker build --pull -t registry.example.com/phpunch/chow-ni-car/backend:${CI_COMMIT_SHA} .
+    - docker push registry.example.com/phpunch/chow-ni-car/backend:${CI_COMMIT_SHA}
 
 build_frontend:
   image: docker:stable
@@ -38,9 +38,9 @@ build_frontend:
     - echo $CI_JOB_TOKEN
     - cd frontend
     - docker info
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
-    - docker build --pull -t registry.gitlab.com/phpunch/chow-ni-car/frontend:${CI_COMMIT_SHA} .
-    - docker push registry.gitlab.com/phpunch/chow-ni-car/frontend:${CI_COMMIT_SHA}
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.example.com
+    - docker build --pull -t registry.example.com/phpunch/chow-ni-car/frontend:${CI_COMMIT_SHA} .
+    - docker push registry.example.com/phpunch/chow-ni-car/frontend:${CI_COMMIT_SHA}
 
 test:
   stage: test
@@ -67,7 +67,7 @@ deploy_dev:
       kubectl delete secret gitlab-auth;
       fi
     - kubectl create secret docker-registry gitlab-auth
-      --docker-server=https://registry.gitlab.com/v1/
+      --docker-server=https://registry.example.com
       --docker-username=$DOCKER_USERNAME
       --docker-password=$DOCKER_PASSWORD
       --docker-email=$DOCKER_EMAIL
