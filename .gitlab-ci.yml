@@ -67,7 +67,7 @@ deploy_dev:
       kubectl delete secret gitlab-auth;
       fi
     - kubectl create secret docker-registry gitlab-auth
-      --docker-server=https://registry.gitlab.com
+      --docker-server=https://registry.gitlab.com/v1/
       --docker-username=$DOCKER_USERNAME
       --docker-password=$DOCKER_PASSWORD
       --docker-email=$DOCKER_EMAIL
@@ -92,6 +92,5 @@ deploy_dev:
     # - kubectl apply -f frontend-deployment.yaml
     # - kubectl apply -f frontend-service.yaml
     - kubectl get pods
-    - kubectl cluster-info dump
   only:
     - master
