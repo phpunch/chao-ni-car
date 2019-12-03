@@ -24,6 +24,8 @@ spec:
       containers:
         - image: registry.gitlab.com/phpunch/chow-ni-car/backend
           imagePullPolicy: Always
+          imagePullSecrets:
+          - name: gitlab-auth # set by (kubectl create secret ... ) and used for pulling private image 
           name: backend
           ports:
             - containerPort: 5000
