@@ -32,6 +32,6 @@ spec:
             - name: WORKAROUND
               value: rollingworkaround
             - name: API_ENDPOINT
-              value: 35.194.217.244
+              value: 35.234.58.120
       restartPolicy: Always
 status: {}
