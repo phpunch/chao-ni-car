@@ -43,13 +43,13 @@ build_frontend:
     - docker build --pull -t $CI_REGISTRY/phpunch/chow-ni-car/frontend:${CI_COMMIT_SHA} .
     - docker push $CI_REGISTRY/phpunch/chow-ni-car/frontend:${CI_COMMIT_SHA}
 
-test:
-  stage: test
-  script:
-    - echo "Running tests"
-    - cd backend
-    - npm install
-    - npm run test
+# test:
+#   stage: test
+#   script:
+#     - echo "Running tests"
+#     - cd backend
+#     - npm install
+#     - npm run test
 
 
 deploy_dev:
