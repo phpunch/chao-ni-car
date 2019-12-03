@@ -59,7 +59,7 @@ deploy_dev:
   script:
     - echo "Deploy to staging server"
     - echo ${CI_COMMIT_SHA}
-    - kubectl config set-cluster chow-ni-car_cluster --server="$KUBE_URL" --insecure-skip-tls-verify=true
+    - kubectl config set-cluster chow-ni-car-cluster --server="$KUBE_URL" --insecure-skip-tls-verify=true
     - cd backend
     - kubectl config current-context
     - kubectl config get-contexts
