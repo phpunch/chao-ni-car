@@ -91,5 +91,6 @@ deploy_dev:
     # - sed -i "s/workaroundrolling/rollingworkaround/" frontend-deployment.yaml frontend-service.yaml
     # - kubectl apply -f frontend-deployment.yaml
     # - kubectl apply -f frontend-service.yaml
+    - kubectl get pods
   only:
     - master
