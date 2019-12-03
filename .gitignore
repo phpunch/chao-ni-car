@@ -1,6 +1,4 @@
-# dependencies
 /frontend/node_modules
 /frontend/build
 /backend/node_modules
-#/frontend/src/containers/testPage.js
-#/frontend/src/containers/AuthenticationPage.js
+/backend/config
