@@ -71,6 +71,7 @@ deploy_dev:
       --docker-username=$DOCKER_USERNAME
       --docker-password=$DOCKER_PASSWORD
       --docker-email=$DOCKER_EMAIL
+    - kubectl get secret
     - sed -i "s/__VERSION__/${CI_COMMIT_SHA}/" backend-deployment.yaml backend-service.yaml db-deployment.yaml db-service.yaml
     - sed -i "s/rolling-again/again-rolling/" backend-deployment.yaml backend-service.yaml db-deployment.yaml db-service.yaml
     - kubectl apply -f backend-deployment.yaml

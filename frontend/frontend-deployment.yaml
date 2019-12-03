@@ -20,12 +20,10 @@ spec:
         workaround: again-rolling
     spec:
       imagePullSecrets:
-        - name: gitlab-auth
+        - name: gitlab-auth # set by (kubectl create secret ... ) and used for pulling private image 
       containers:
         - image: registry.gitlab.com/phpunch/chow-ni-car/frontend
           imagePullPolicy: Always
-          imagePullSecrets:
-          - name: gitlab-auth # set by (kubectl create secret ... ) and used for pulling private image 
           name: frontend
           ports:
             - containerPort: 3000
