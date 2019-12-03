@@ -22,7 +22,7 @@ spec:
       imagePullSecrets:
         - name: gitlab-auth
       containers:
-        - image: registry.gitlab.com/phpunch/chow-ni-car/backend:__VERSION__
+        - image: registry.gitlab.com/phpunch/chow-ni-car/backend
           imagePullPolicy: Always
           name: backend
           ports:
