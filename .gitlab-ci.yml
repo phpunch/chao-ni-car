@@ -67,11 +67,12 @@ deploy_dev:
     - if kubectl get secret gitlab-auth; then
       kubectl delete secret gitlab-auth;
       fi
-    - kubectl create secret docker-registry gitlab-auth
-      --docker-server=$CI_REGISTRY
-      --docker-username=$DOCKER_USERNAME
-      --docker-password=$DOCKER_PASSWORD
-      --docker-email=$DOCKER_EMAIL
+    # - kubectl create secret docker-registry gitlab-auth
+    #   --docker-server=$CI_REGISTRY
+    #   --docker-username=$DOCKER_USERNAME
+    #   --docker-password=$DOCKER_PASSWORD
+    #   --docker-email=$DOCKER_EMAIL
+    - kubectl create -f private-registry.secret.yml
     - kubectl get secret
     - sed -i "s/__VERSION__/${CI_COMMIT_SHA}/" backend-deployment.yaml backend-service.yaml db-deployment.yaml db-service.yaml
     - sed -i "s/rolling-again/again-rolling/" backend-deployment.yaml backend-service.yaml db-deployment.yaml db-service.yaml
