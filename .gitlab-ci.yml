@@ -61,7 +61,6 @@ deploy_dev:
     - echo "Deploy to staging server"
     - echo ${CI_COMMIT_SHA}
     - kubectl config set-cluster chow-ni-car-cluster --server="$KUBE_URL" --insecure-skip-tls-verify=true
-    - cd backend
     - kubectl config current-context
     - kubectl config get-contexts
     - if kubectl get secret gitlab-auth; then
@@ -74,6 +73,7 @@ deploy_dev:
     #   --docker-email=$DOCKER_EMAIL
     - kubectl create -f private-registry.secret.yml
     - kubectl get secret
+    - cd backend
     - sed -i "s/__VERSION__/${CI_COMMIT_SHA}/" backend-deployment.yaml backend-service.yaml db-deployment.yaml db-service.yaml
     - sed -i "s/rolling-again/again-rolling/" backend-deployment.yaml backend-service.yaml db-deployment.yaml db-service.yaml
     - kubectl apply -f backend-deployment.yaml
