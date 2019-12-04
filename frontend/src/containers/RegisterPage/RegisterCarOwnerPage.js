@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./RegisterPage.css";
 import axios from "axios";
 import { Button, Modal } from "react-bootstrap";
+import {BACKEND_URL} from '../../utils'
+
 const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
   Object.values(formErrors).forEach(val => {
@@ -141,7 +143,7 @@ class RegisterCarOwnerPage extends Component {
     };
 
     axios
-      .post("/auth/local", data)
+      .post(BACKEND_URL + "/auth/local", data)
       .then(res => {
         console.log(res);
         window.location = '/';

@@ -5,6 +5,7 @@ import axios from "axios";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Carlist from "../../components/Ownercar/Carlist";
 import addcaricon from "../../images/addcar.png";
+import {BACKEND_URL} from '../../utils'
 class CarManage extends Component {
   state = {
     user: null,
@@ -16,7 +17,7 @@ class CarManage extends Component {
     cars: [] //fetch from server
   };
   componentDidUpdate() {
-    const url = "/api/ownercars";
+    const url = BACKEND_URL + "/api/ownercars";
     axios
       .get(url)
       .then(res => {
@@ -38,7 +39,7 @@ class CarManage extends Component {
   componentDidMount() {
     this.setState({ loading: true });
     console.log(this.state);
-    const url = "/api/ownercars";
+    const url = BACKEND_URL + "/api/ownercars";
     axios
       .get(url)
       .then(res => {

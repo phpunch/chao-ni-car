@@ -26,12 +26,12 @@ spec:
           imagePullPolicy: Always
           name: frontend
           ports:
-            - containerPort: 3000
+            - containerPort: 80
           resources: {}
           env:
             - name: WORKAROUND
               value: rollingworkaround
-            - name: API_ENDPOINT
-              value: backend
+            # - name: API_ENDPOINT
+            #   value: backend
       restartPolicy: Always
 status: {}

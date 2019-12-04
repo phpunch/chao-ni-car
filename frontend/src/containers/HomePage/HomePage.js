@@ -7,6 +7,8 @@ import axios from "axios";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import SubQueryFilter from "../../components/QueryFilter/SubQueryFilter/SubQueryFilter";
 import Banner from "../../images/Banner.png";
+import {BACKEND_URL} from '../../utils'
+
 class HomePage extends Component {
   constructor() {
     super();
@@ -32,6 +34,7 @@ class HomePage extends Component {
     this.setState({ loading: true });
     console.log(this.state);
     const url =
+      BACKEND_URL + 
       "/api/cars?fromDate=" +
       this.state.fromDate +
       "&toDate=" +
@@ -120,6 +123,7 @@ class HomePage extends Component {
     this.setState({ loading: true });
     console.log(this.state);
     const url =
+      BACKEND_URL + 
       "/api/cars?fromDate=" +
       this.state.fromDate +
       "&toDate=" +
@@ -165,6 +169,7 @@ class HomePage extends Component {
             <div>
               <button className={classes.button} onClick={this.buttonHandler}>
                 EXPLORE
+                {process.env.NODE_ENV}
               </button>
             </div>
           </div>

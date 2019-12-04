@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
 import "./ProfilePage.css";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import * as actionTypes from "../../store/actions/actionTypes";
-import axios from "axios";
-import moment from "moment";
 import Spinner from "../../components/UI/Spinner/Spinner";
 
 class ProfilePage extends Component {

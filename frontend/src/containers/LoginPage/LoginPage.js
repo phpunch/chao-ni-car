@@ -3,6 +3,7 @@ import axios from "axios";
 import { withRouter } from "react-router-dom";
 import Userimg from "../../images/user.png";
 import "../LoginPage/LoginPage.css";
+import {BACKEND_URL} from '../../utils'
 class LoginPage extends Component {
   state = {
     username: "",
@@ -22,7 +23,7 @@ class LoginPage extends Component {
     const data = { ...this.state };
     if (form.checkValidity()) {
       axios
-        .post("/auth/login", data)
+        .post(BACKEND_URL + "/auth/login", data)
         .then(res => {
           console.log(res.user);
           window.location = "/";

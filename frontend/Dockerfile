@@ -11,10 +11,10 @@ WORKDIR /app
 RUN npm install --production
 
 # --> Expose our server port.
-EXPOSE 3000
+EXPOSE 80
 # --> Run our app.
 RUN npm run build
 
 RUN npm install -g serve
 
-CMD ["npm", "start"]
+CMD ["serve", "-s", "build", "-p", "80"]

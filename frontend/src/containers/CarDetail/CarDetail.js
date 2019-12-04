@@ -10,6 +10,7 @@ import testPic1 from './test/img.jpg';
 import testPic2 from './test/img2.jpg';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import Rent from '../Rent/Rent';
+import {BACKEND_URL} from '../../utils'
 
 class CarDetail extends Component {
     state = {
@@ -45,7 +46,7 @@ class CarDetail extends Component {
         console.log(this.props.location.pathname)
         //console.log(this.props.match.params.id);
         this.setState({ loading: true });
-        axios.get('/api/cars/' + this.props.match.params.id)
+        axios.get(BACKEND_URL + '/api/cars/' + this.props.match.params.id)
             .then(res => {
                 console.log(res.data);
                 const newState = {

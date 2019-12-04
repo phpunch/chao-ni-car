@@ -5,6 +5,7 @@ import FieldUploadFile from "../../components/FieldFileInput/FieldUploadFile";
 import classes from "./AddCarPage.module.css";
 import { Formik, FormikProps, Field } from "formik";
 import * as yup from 'yup';
+import {BACKEND_URL} from '../../utils'
 class AddCarPage extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +37,7 @@ class AddCarPage extends Component {
       };
       console.log(data);
       axios
-      .post("/api/cars", data)
+      .post(BACKEND_URL + "/api/cars", data)
       .then(res => {
         console.log(res);
         this.props.history.push("/carmanage");

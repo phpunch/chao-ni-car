@@ -5,6 +5,7 @@ import { withRouter } from "react-router";
 import { Row, Col } from "react-bootstrap";
 import "./ProfilePage.css";
 import Spinner from "../../components/UI/Spinner/Spinner";
+import {BACKEND_URL} from '../../utils'
 
 class Profile extends Component {
   state = {
@@ -15,7 +16,7 @@ class Profile extends Component {
   }
   getCurrentUser = () => {
     axios
-      .get("/api/user/" + this.props.match.params.id)
+      .get(BACKEND_URL + "/api/user/" + this.props.match.params.id)
       .then(response => {
         console.log(response.data);
         this.setState({

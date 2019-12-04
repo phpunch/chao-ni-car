@@ -7,6 +7,7 @@ import moment from "moment";
 import { connect } from "react-redux";
 import Spinner from '../../components/UI/Spinner/Spinner';
 import { withRouter, Link } from "react-router-dom";
+import {BACKEND_URL} from '../../utils'
 
 class PaymentPage extends Component {
   state = {
@@ -49,7 +50,7 @@ class PaymentPage extends Component {
     //console.log(this.props.match.params.id);
     this.setState({ loading: true });
     axios
-      .get("/api/cars/" + this.props.match.params.id)
+      .get(BACKEND_URL + "/api/cars/" + this.props.match.params.id)
       .then(res => {
         console.log(res.data);
         var deposit = Number(res.data.deposit);
@@ -104,7 +105,7 @@ class PaymentPage extends Component {
       showMessage: true,
     })
     try {
-      const res = await axios.post("/api/stripe", request);
+      const res = await axios.post(BACKEND_URL + "/api/stripe", request);
       console.log(res)
       console.log(this.state.providerName);
       // ***********************************

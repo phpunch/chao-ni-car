@@ -3,6 +3,7 @@ import Spinner from './Spinner'
 import Images from './Images'
 import Buttons from './Buttons'
 import axios from 'axios'
+import {BACKEND_URL} from '../../utils'
 
 export default class App extends Component {
   
@@ -21,7 +22,7 @@ export default class App extends Component {
     formData.append("file", file);
     axios({
         method: 'post',
-        url: '/api/files',
+        url: BACKEND_URL + '/api/files',
         data: formData,
         config: { headers: {'Content-Type': 'multipart/form-data' }}
     })

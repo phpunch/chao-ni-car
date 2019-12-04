@@ -3,6 +3,7 @@ import Car from "./Car";
 import "./Carlist.css";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import {BACKEND_URL} from '../../utils'
 class Carlist extends React.Component {
   constructor() {
     super();
@@ -12,7 +13,7 @@ class Carlist extends React.Component {
   handleDelete(id) {
     console.log(id);
     axios
-      .delete("/api/cars/" + id)
+      .delete(BACKEND_URL + "/api/cars/" + id)
 
       .then(res => {
         console.log(res);
