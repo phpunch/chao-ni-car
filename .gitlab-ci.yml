@@ -60,7 +60,6 @@ deploy_dev:
   script:
     - echo "Deploy to staging server"
     - echo ${CI_COMMIT_SHA}
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - kubectl config set-cluster chow-ni-car-cluster --server="$KUBE_URL" --insecure-skip-tls-verify=true
     - cd backend
     - kubectl config current-context
