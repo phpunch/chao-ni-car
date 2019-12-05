@@ -42,7 +42,8 @@ class RegisterRenterPage extends Component {
         confirmpassword: " ",
         id: " ",
         tel: " "
-      }
+      },
+      errorMessage: ""
     };
   }
 
@@ -140,7 +141,7 @@ class RegisterRenterPage extends Component {
         window.location = '/'
       })
       .catch(err => {
-        console.log(err);
+        this.setState({errorMessage: err})
       });
 
   };
@@ -280,7 +281,9 @@ class RegisterRenterPage extends Component {
             <div className="createAccount">
               <button type="submit">Create Account</button>
             </div>
-
+            <div>
+              {this.state.errorMessage}
+            </div>
 
           </form>
           <Modal show={this.state.show}>

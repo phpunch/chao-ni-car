@@ -169,7 +169,6 @@ class HomePage extends Component {
             <div>
               <button className={classes.button} onClick={this.buttonHandler}>
                 EXPLORE
-                {process.env.NODE_ENV}
               </button>
             </div>
           </div>
