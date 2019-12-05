@@ -97,21 +97,21 @@ class NavbarComponent extends Component {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
 
-            <Nav.Link
+            {/* <Nav.Link
               style={{
                 color: "white"
               }}
               href="/howtouse"
             >
               HOWTO
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link
               style={{
                 color: "white"
               }}
               href="/about"
             >
-              ABOUT
+              CONTACT
             </Nav.Link>
           </Nav>
           <Nav>{display}</Nav>
