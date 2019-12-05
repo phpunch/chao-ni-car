@@ -42,7 +42,6 @@ class NavbarComponent extends Component {
         );
         break;
       default:
-        console.log("Logout");
         display = (
           <Form inline>
             

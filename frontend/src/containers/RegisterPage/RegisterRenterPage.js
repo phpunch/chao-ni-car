@@ -141,7 +141,7 @@ class RegisterRenterPage extends Component {
         window.location = '/'
       })
       .catch(err => {
-        this.setState({errorMessage: err})
+        console.log(err)
       });
 
   };

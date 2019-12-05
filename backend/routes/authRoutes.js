@@ -16,7 +16,8 @@ module.exports = app => {
       tel,
       isProvider
     } = req.body;
-
+    console.log("REGISTER")
+    console.log(req.body)
     // check validation
     if (name.length < 3) {
       return res.json({message: "Name Invalid"})
@@ -60,7 +61,7 @@ module.exports = app => {
           return res.status(400).json({ message: "Sign Up Error"})
         }
         passport.authenticate("local")(req, res, function() {
-          //console.log(res)
+          console.log(res)
           res.status(200).json({message: "Sign Up Success"});
         });
       }

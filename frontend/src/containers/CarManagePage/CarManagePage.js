@@ -16,26 +16,6 @@ class CarManage extends Component {
     CARS: [],
     cars: [] //fetch from server
   };
-  componentDidUpdate() {
-    const url = BACKEND_URL + "/api/ownercars";
-    axios
-      .get(url)
-      .then(res => {
-        console.log({ res });
-        const cars = [...res.data];
-        console.log(cars);
-        this.setState({
-          cars: [...cars],
-          CARS: [...cars],
-          error: false,
-          loading: false
-        });
-      })
-      .catch(err => {
-        console.log("error");
-        this.setState({ loading: false, error: err });
-      });
-  }
   componentDidMount() {
     this.setState({ loading: true });
     console.log(this.state);

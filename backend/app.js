@@ -50,8 +50,8 @@ app.use(
 
 app.use(require("express-session")({
   secret: 'dlsfkjsdklfjdklsfjdksl',
-  resave: false,
-  saveUninitialized: false
+  resave: true,
+  saveUninitialized: true
 }))
 
 app.use(passport.initialize());
@@ -71,5 +71,14 @@ require('./routes/requestRoutes')(app);
 require('./routes/fileRoutes')(app);
 require('./routes/billingRoutes')(app);
 
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static('client/build'));
+
+//   const path = require('path');
+//   app.get('*', (req, res) => {
+//       const filePath = path.resolve(__dirname, 'client', 'build', 'index.html')
+//       res.sendFile(filePath)
+//   })
+// }
 
 module.exports = app
