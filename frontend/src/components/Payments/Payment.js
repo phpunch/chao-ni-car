@@ -17,6 +17,7 @@ class Payments extends Component {
       >
         <button className="paybtn">
           Pay with creditcard
+          {process.env}
         </button>
       </StripeCheckout>
     );
